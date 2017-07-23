@@ -5,7 +5,7 @@
         <app-showreel></app-showreel>
         <app-team></app-team>
         <app-cta></app-cta>
-        <app-instagramfeed></app-instagramfeed>
+        <!-- <app-instagramfeed></app-instagramfeed> -->
     </div>
 </template>
 

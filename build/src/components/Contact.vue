@@ -3,7 +3,7 @@
       <h1>{{msg}}</h1>
         This is the CONTACT section
         <app-contactform></app-contactform>
-        <app-instagramfeed></app-instagramfeed>
+        <!-- <app-instagramfeed></app-instagramfeed> -->
     </div>
 </template>
 

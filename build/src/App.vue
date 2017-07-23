@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <app-nav></app-nav>
+    <!-- <app-nav></app-nav> -->
     <router-view></router-view>
-    <app-footer></app-footer>
+    <!-- <app-footer></app-footer> -->
   </div>
 </template>
 
@@ -17,13 +17,28 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+$mobile: 560px;
+$tablet: 820px;
+$desktop: 1024px;
+body {
+	font-family: 'Fira Sans', sans-serif;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+h1, h2, p {
+	margin: 0;
+}
+
+h1, h2 {
+	font-weight: bold;
+	font-family: 'Fira Sans', sans-serif;
+}
+
+p {
+	font-family: 'Cousine', sans-serif;
 }
 </style>
