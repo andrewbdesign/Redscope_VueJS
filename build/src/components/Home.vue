@@ -16,9 +16,9 @@
         </div>
       </div>
     </div>
-    <!-- <app-showreel></app-showreel> -->
-    <!-- <app-works></app-works> -->
   </div>
+  <!-- <app-showreel></app-showreel> -->
+  <app-works></app-works>
   <app-cta></app-cta>
 </div>
 </template>
@@ -40,6 +40,9 @@ $desktop: 1024px;
 #about-section {
     background: #151515;
     padding: 100px 0;
+    .container {
+        max-width: $tablet;
+    }
 }
 
 .letter-r-container {
