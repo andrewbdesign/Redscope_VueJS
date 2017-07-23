@@ -1,37 +1,22 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div>
+    <h1>We the<br>Story Tellers</h1>
+    <p>We create, produce, and bring your story, brief and brand to life through content. We're a team of collaborators that are down to earth, no fuss, simple and ambitious to push your ideas to the next level</p>
+    <router-link to="/about">Who we are</router-link>
+    <app-showreel></app-showreel>
+    <app-works></app-works>
+    <app-cta></app-cta>
+    <app-instagramfeed></app-instagramfeed>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'hello',
-  data () {
-    return {
-      msg: 'Hi there'
-    }
-  }
+
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
