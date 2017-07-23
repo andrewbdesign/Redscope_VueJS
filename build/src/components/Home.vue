@@ -1,26 +1,25 @@
 <template>
-<div id="about-section">
-  <div class="container">
-    <div class="row">
-
-      <div class="six columns">
-        <div class="letter-r-container">
-          <img class="letter-r" src="../assets/img/letters/letter-r-icon.png" alt="">
-          <img class="letter-r-bg" src="../assets/img/letters/letter-r-bg.jpg" alt="">
+<div>
+  <div id="about-section">
+    <div class="container">
+      <div class="row">
+        <div class="six columns">
+          <div class="letter-r-container">
+            <img class="letter-r" src="../assets/img/letters/letter-r-icon.png" alt="">
+            <img class="letter-r-bg" src="../assets/img/letters/letter-r-bg.jpg" alt="">
+          </div>
+        </div>
+        <div class="six columns">
+          <h1>We the<br>Story Tellers</h1>
+          <p>We create, produce, and bring your story, brief and brand to life through content. We're a team of collaborators that are down to earth, no fuss, simple and ambitious to push your ideas to the next level</p>
+          <router-link to="/about">Who we are</router-link>
         </div>
       </div>
-
-      <div class="six columns">
-        <h1>We the<br>Story Tellers</h1>
-        <p>We create, produce, and bring your story, brief and brand to life through content. We're a team of collaborators that are down to earth, no fuss, simple and ambitious to push your ideas to the next level</p>
-        <router-link to="/about">Who we are</router-link>
-      </div>
     </div>
+    <!-- <app-showreel></app-showreel> -->
+    <!-- <app-works></app-works> -->
   </div>
-  <!-- <app-showreel></app-showreel> -->
-  <!-- <app-works></app-works> -->
-  <!-- <app-cta></app-cta> -->
-  <!-- <app-instagramfeed></app-instagramfeed> -->
+  <app-cta></app-cta>
 </div>
 </template>
 
@@ -64,23 +63,23 @@ $desktop: 1024px;
 }
 
 h1 {
-		margin: 0;
-		font-size: 40px;
-		line-height: 40px;
-		color: #c7c7c7;
-		margin-bottom: 30px;
-		letter-spacing: 1px;
-		font-weight: 700;
-		position: relative;
-		z-index: 300;
+    margin: 0;
+    font-size: 40px;
+    line-height: 40px;
+    color: #c7c7c7;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    position: relative;
+    z-index: 300;
 }
 p {
-		max-width: 420px;
-		color: #fff;
-		margin-bottom: 0;
-		position: relative;
-		z-index: 300;
-	}
+    max-width: 420px;
+    color: #fff;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 300;
+}
 a {
     display: inline-block;
     margin-top: 20px;
@@ -93,5 +92,4 @@ a {
         color: #a90e1e;
     }
 }
-
 </style>

@@ -73,7 +73,6 @@ ig.build = function(data, args) {
     var commentCount = item.comments.count;
     var likeCount = item.likes.count;
     //get 1280 size photo [hack until avail in api]
-    // <img src="./assets/logo.png">
     var hires = img.replace('s640x640', '1080x1080');
     args.html += '<a class="image" style="background-image: url(' + thumb + ');" data-img="' + hires + '" data-url="' + instaLink + '">';
     args.html+= '<span class="caption"><img class="icon-heart" src="http://redscopefilms.com/img/icon/icon-heart.svg"> ' + likeCount +  '<img class="icon-comment" src="http://redscopefilms.com/img/icon/icon-comment.svg">' + commentCount + ' </span>'
