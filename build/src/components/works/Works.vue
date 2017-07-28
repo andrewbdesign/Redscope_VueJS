@@ -122,6 +122,7 @@ $mobile: 560px;
 $tablet: 820px;
 $desktop: 1024px;
 #works-section {
+    overflow: hidden;
     background: #f4f4f4;
     padding: 150px 0 50px;
     position: relative;
