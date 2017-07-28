@@ -13,8 +13,8 @@
           </div>
         </div>
         <div class="six columns">
-          <h1>We the<br>Story Tellers</h1>
-          <p>We create, produce, and bring your story, brief and brand to life through content. We're a team of collaborators that are down to earth, no fuss, simple and ambitious to push your ideas to the next level</p>
+          <h1> {{ title }}</h1>
+          <p> {{ description }}</p>
           <router-link to="/about">Who we are</router-link>
         </div>
       </div>
@@ -30,6 +30,12 @@
 import Works from './works/Works.vue'
 
 export default {
+    data: function() {
+        return {
+            title: 'We the Story Tellers',
+            description: `We create, produce, and bring your story, brief and brand to life through content. We're a team of collaborators that are down to earth, no fuss, simple and ambitious to push your ideas to the next level`
+        }
+    },
     components: {
         'app-works': Works
     }

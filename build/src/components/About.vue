@@ -5,8 +5,8 @@
       <div class="row">
         <div class="about-copy six columns">
 
-          <h1>About</h1>
-          <p>We are a boutique creative Video/content production studio. A team of hybrid creatives, collaborators and modern storytellers that create moving and inspiring content.</p>
+          <h1>{{ title }}</h1>
+          <p>{{ description }}</p>
         </div>
         <div class="img-b six columns">
           <img class="letter-a" src="../assets/img/letters/letter-a-icon.png" alt="">
@@ -25,6 +25,12 @@
 import Team from './team/Team.vue';
 
 export default {
+    data: function() {
+        return {
+            title: 'About',
+            description: `We are a boutique creative Video/content production studio. A team of hybrid creatives, collaborators and modern storytellers that create moving and inspiring content.`
+        }
+    },
     components: {
         'app-team': Team
     }
@@ -32,10 +38,14 @@ export default {
 </script>
 
 <style lang="scss">
+h1 {
+    font-size: 40px;
+}
 #about-section {
     background: #151515;
-    padding: 120px 0;
+    padding: 150px 0;
     color: #fff;
+    overflow: hidden;
     .container {
         max-width: 820px;
     }

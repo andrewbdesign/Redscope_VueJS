@@ -113,6 +113,17 @@
 
 <script>
 export default {
+    data: function() {
+        return {
+            click: 0
+        }
+    },
+    methods: {
+        clickVideo() {
+            console.log('click video')
+            click++
+        }
+    }
 
 }
 </script>

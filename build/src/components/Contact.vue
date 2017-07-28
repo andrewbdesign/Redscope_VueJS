@@ -11,17 +11,17 @@
 					<div class="row">
 						<div class="tweleve columns">
 							<a href="mailto:contact@redscope.com">
-								<h1>Contact@redscope.com</h1>
+								<h1> {{ email }}</h1>
 							</a>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="six columns icon-column">
-							<p><img class="icons icon-pin" src="../assets/img/icon/icon-pin.svg" alt="">319-325 Trafalgar St,<br>Petersham NSW 2049</p>
+							<p><img class="icons icon-pin" src="../assets/img/icon/icon-pin.svg" alt=""> {{ address }}</p>
 						</div>
 						<div class="six columns icon-column">
-							<p><img class="icons icon-phone" src="../assets/img/icon/icon-phone.svg" alt=""><a href="tel:+61406685233">0406 685 233</a></p>
+							<p><img class="icons icon-phone" src="../assets/img/icon/icon-phone.svg" alt=""><a href="tel:+61406685233"> {{ contactNumber }}</a></p>
 						</div>
 					</div>
 
@@ -53,8 +53,14 @@
 
 <script>
 import contactForm from './contact-form/ContactForm.vue';
-
 export default {
+    data: function() {
+        return {
+            email: 'contact@redscope.com',
+            address: '319-325 Trafalgar St, Petersham NSW 2049',
+            contactNumber: '0406 685 233'
+        }
+    },
     components: {
         'app-contactform': contactForm
     }
