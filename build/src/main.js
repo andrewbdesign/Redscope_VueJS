@@ -7,20 +7,13 @@ import Nav from './components/shared/Nav'
 import Footer from './components/shared/Footer'
 import Cta from './components/shared/CtaButton'
 import Showreel from './components/showreel/Showreel'
-import Works from './components/works/Works'
-import Team from './components/team/Team'
-import ContactForm from './components/contact-form/ContactForm.vue'
-
 import InstagramFeed from './components/shared/InstagramFeed'
 
 Vue.config.productionTip = false
 Vue.component('app-nav', Nav)
 Vue.component('app-footer', Footer)
 Vue.component('app-showreel', Showreel)
-Vue.component('app-works', Works)
 Vue.component('app-cta', Cta)
-Vue.component('app-team', Team)
-Vue.component('app-contactform', ContactForm)
 Vue.component('app-instagramfeed', InstagramFeed)
 
 
@@ -112,16 +105,16 @@ $('.instagram').on('click', '.image', function(){
 // Works hover
 var md = new MobileDetect(window.navigator.userAgent);
 if(md.phone() || md.tablet()) {
-		$('.hover-overlay').css('opacity', 1)
-		$('.play-icon').css('display', 'none')
-	} else {
-		$('.video-column video').on('mouseover', function(){
-			$(this).get(0).play()
-			$(this).next().css('opacity', 1)
-		}).on('mouseout', function(){
-			$(this).get(0).currentTime = 0;
-			$(this).get(0).pause()
-			$(this).next().css('opacity', 0)
-			$(this).load()
-		})
-	}
+	$('.hover-overlay').css('opacity', 1)
+	$('.play-icon').css('display', 'none')
+} else {
+	$('.video-column video').on('mouseover', function(){
+		$(this).get(0).play()
+		$(this).next().css('opacity', 1)
+	}).on('mouseout', function(){
+		$(this).get(0).currentTime = 0;
+		$(this).get(0).pause()
+		$(this).next().css('opacity', 0)
+		$(this).load()
+	})
+}

@@ -27,6 +27,13 @@
 </template>
 
 <script>
+import Works from './works/Works.vue'
+
+export default {
+    components: {
+        'app-works': Works
+    }
+}
 </script>
 
 <style lang="scss" scoped>

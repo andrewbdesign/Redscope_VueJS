@@ -22,13 +22,12 @@
 </template>
 
 <script>
+import Team from './team/Team.vue';
+
 export default {
-  data() {
-    return {
-      msg: 'Hi there',
-      title: 'About'
+    components: {
+        'app-team': Team
     }
-  }
 }
 </script>
 

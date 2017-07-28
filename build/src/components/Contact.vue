@@ -52,12 +52,11 @@
 </template>
 
 <script>
+import contactForm from './contact-form/ContactForm.vue';
+
 export default {
-    data () {
-      return {
-        msg: 'CONTACT PAGE',
-        title: 'Contact'
-      }
+    components: {
+        'app-contactform': contactForm
     }
 }
 </script>
