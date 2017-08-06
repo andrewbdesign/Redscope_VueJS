@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
-
+import NotFoundComponent from '@/components/NotFoundComponent'
 Vue.use(Router)
 
 
@@ -21,6 +21,9 @@ export default new Router({
       path: '/contact',
       component: Contact
     },
+    { path: '*',
+      component: NotFoundComponent
+    }
   ],
   mode: 'history'
 })

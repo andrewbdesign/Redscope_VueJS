@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <!-- <app-nav></app-nav> -->
+    <app-nav></app-nav>
     <router-view></router-view>
     <app-instagramfeed></app-instagramfeed>
     <app-footer></app-footer>
-    
+
   </div>
 </template>
 

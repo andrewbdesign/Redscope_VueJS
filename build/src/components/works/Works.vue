@@ -77,7 +77,7 @@
 							<div class="hover-container">
                 <!-- poster="../../assets/img/works/Adidashypeparty-1.jpg" -->
 								<video id="work-05" playsinline muted loop data-video="https://www.youtube.com/embed/-73xEK26Tes">
-									 <source src="../../assets/img/works/Adidashypeparty-1.mp4" type="video/mp4">
+    									<source src="../../assets/img/works/Adidashypeparty-1.mp4" type="video/mp4">
 									 	<source src="../../assets/img/works/Adidashypeparty-1.webm" type="video/webm">
 
 								</video>
@@ -93,7 +93,7 @@
 							<div class="hover-container">
                 <!-- poster="../../assets/img/works/Piers_Nye-1.jpg" -->
 								<video id="work-06" playsinline muted loop data-video="https://www.youtube.com/embed/W4Ckgz8djoQ">
-									  <source src="../../assets/img/works/Piers_Nye-1.mp4" type="video/mp4">
+									    <source src="../../assets/img/works/Piers_Nye-1.mp4" type="video/mp4">
 									 	<source src="../../assets/img/works/Piers_Nye-1.webm" type="video/webm">
 								</video>
 								<div class="hover-overlay">
@@ -113,17 +113,6 @@
 
 <script>
 export default {
-    data: function() {
-        return {
-            click: 0
-        }
-    },
-    methods: {
-        clickVideo() {
-            console.log('click video')
-            click++
-        }
-    }
 
 }
 </script>
