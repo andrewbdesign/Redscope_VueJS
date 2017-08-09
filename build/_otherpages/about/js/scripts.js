@@ -16,7 +16,24 @@ function loadAssets() {
         'img/icon/logo-instagram.svg',
         'img/icon/logo-vimeo.svg',
         // Hero image
-        'img/about-hero-image.jpg'
+        'img/about-hero-image.jpg',
+        // Showreel images
+        'img/showreel/01-boxer-man-bg.jpg',
+        'img/showreel/01-boxer-man.png',
+        'img/showreel/02-swimmer-bg.jpg',
+        'img/showreel/02-swimmer-girl-01.png',
+        'img/showreel/02-swimmer-girl-02.png',
+        'img/showreel/03-food-dudes-bg.jpg',
+        'img/showreel/03-food-dudes.png',
+        'img/showreel/04-fashion-bg.jpg',
+        'img/showreel/04-fashion-chick.png',
+        'img/showreel/05-phone-dude-01.png',
+        'img/showreel/05-phone-dude-02.png',
+        'img/showreel/05-phone-dude-bg.jpg',
+        'img/showreel/06-hype-shoes-01.png',
+        'img/showreel/06-hype-shoes-02.png',
+        'img/showreel/06-hype-shoes-bg.jpg',
+        'img/showreel/showreel-play-btn.png',
     ]
 
     preloadimages(i).done( () => showWebsite() )
@@ -24,8 +41,61 @@ function loadAssets() {
 
 function showWebsite() {
     $('#website-section').show()
+    initCSS()
     heroSection()
+    scrollMagic()
     showReel()
+}
+
+function initCSS() {
+    TweenMax.set('#loader-logo', {autoAlpha:0})
+	TweenMax.set('.boxer-character', {alpha:0})
+	TweenMax.set('.boxer-man', {alpha:0})
+	TweenMax.set('.swimmer-girl-container', {alpha:0})
+	TweenMax.set('.ocean-bg', {alpha:0})
+	TweenMax.set('.food-bg', {alpha:0})
+	TweenMax.set('.food-dudes', {alpha:0})
+	TweenMax.set('.fashion-chick', {alpha:0})
+	TweenMax.set('.fashion-bg', {alpha:0})
+	TweenMax.set('.phone-bg', {alpha:0})
+	TweenMax.set('.phone-dude-container', {alpha:0})
+	TweenMax.set('.hype-shoes-bg', {alpha:0})
+	TweenMax.set('.hype-shoes-container', {alpha:0})
+}
+
+function scrollMagic() {
+    var controller = new ScrollMagic.Controller();
+
+    var aboutCopyText = new TimelineMax();
+	aboutCopyText.from('#about-section .img-b', .7, {y:40, autoAlpha:0, ease:Power1.easeOut}, '0')
+				 .from('.about-copy', .7, {y:40, autoAlpha:0, ease:Power1.easeOut}, '.4')
+	var scene01 = new ScrollMagic.Scene({
+	    triggerElement: '#about-section .img-b', // element
+	    triggerHook: 0.7,
+		reverse: true,
+    })
+	.setTween(aboutCopyText)
+    .addTo(controller)
+
+    var showReelTween = new TimelineMax();
+	showReelTween.from('#showreel-section .container-showreel-thumbnail', .7, {y:40, autoAlpha:0, ease:Power1.easeOut}, '0')
+	var scene02 = new ScrollMagic.Scene({
+        triggerElement: '#showreel-section', // element
+        triggerHook: 0.7,
+        reverse: true,
+    })
+	.setTween(showReelTween)
+    .addTo(controller)
+
+	var teamMenu = new TimelineMax();
+	teamMenu.staggerFrom('#team-section .bio-column', 1, {y:40, autoAlpha:0, ease:Power1.easeOut}, .12, '0')
+	var scene03 = new ScrollMagic.Scene({
+        triggerElement: '#team-section', // element
+        triggerHook: 0.5,
+        reverse: true,
+    })
+    .setTween(teamMenu)
+    .addTo(controller)
 }
 
 function heroSection() {
@@ -76,6 +146,11 @@ function heroSection() {
 	aboutText.staggerTo('#word-04 div', .3, {alpha:0}, .1, '15.7')
 
 	aboutText.staggerFromTo('#word-01 div', .5, {alpha:0}, {alpha:1}, .1, '16')
+    TweenMax.from('.arrow-container', .7, {autoAlpha:0, ease:Power1.easeOut}, '0')
+
+    var downArrow = new TimelineMax({repeat: -1})
+	downArrow.to('.down-arrow', 1, {y:10, ease:Power1.easeOut}, '0')
+	downArrow.to('.down-arrow', 1, {y:0, ease:Power1.easeOut}, '1')
 }
 
 // ==============
@@ -113,25 +188,18 @@ ig.build = function(data, args) {
     if (item.caption) var caption = item.caption.text;
     var thumb = item.images.low_resolution.url;
     var img = item.images.standard_resolution.url;
-		var videoType = item.type === 'video';
-		if(videoType) {
-			videoLink = item.videos.standard_resolution.url;
-		}
-		// console.log(item, i)
-		var instaLink = item.link;
+	var videoType = item.type === 'video';
+	if(videoType) {
+		videoLink = item.videos.standard_resolution.url;
+	}
+	// console.log(item, i)
+	var instaLink = item.link;
 
-		var commentCount = item.comments.count;
-		var likeCount = item.likes.count;
+	var commentCount = item.comments.count;
+	var likeCount = item.likes.count;
     //get 1280 size photo [hack until avail in api]
     var hires = img.replace('s640x640', '1080x1080');
     args.html += '<a class="image" style="background-image: url('+thumb+');" data-img="'+hires+'" data-url="' + instaLink + '">';
-    // if (caption) {
-		// 	var captionLength = caption;
-		// 			captionLength = captionLength.length;
-		// 	var textLimiter = 90;
-		// 	if (captionLength > textLimiter) { caption = caption.substr(0,textLimiter); }
-		// 		args.html += '<span class="caption">'+caption+'...';
-		// }
 		args.html+= '<span class="caption"><img class="icon-heart" src="img/icon/icon-heart.svg"> ' + likeCount +  '<img class="icon-comment" src="img/icon/icon-comment.svg">' + commentCount + ' </span>'
     args.html += '</a>';
     // PASS TO OUTPUT

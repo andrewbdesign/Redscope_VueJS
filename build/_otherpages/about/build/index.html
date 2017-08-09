@@ -16,11 +16,11 @@
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Cousine|Fira+Sans:400,700" rel="stylesheet">
-
-  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js"></script> -->
-  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script> -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+  <script src="gsap-scrollmagic.js"></script>
 
   <meta property="og:title" content="Redscope - Production studio based in Sydney" />
   <meta property="og:image" content="http://redscopefilms.com/img/redscope-films.jpg" />
@@ -95,6 +95,10 @@
 				</h1>
 			</div>
 			<div class="gradient-about"></div>
+
+            <div class="arrow-container">
+				<img class="down-arrow" src="img/down-arrow.svg" alt="">
+			</div>
 		</div>
 	</div>
 
@@ -118,54 +122,54 @@
     <div id="showreel-section" class="about-showreel">
 		<div class="bg-image-sections"></div>
 		<div class="gradient-mask-feather"></div>
-    		<div class="container-showreel-thumbnail">
-				<img class="showreel-play-btn" src="img/showreel/showreel-play-btn.png" alt="">
-				<div class="background-container">
-					<div class="boxer-man"></div>
-					<div class="ocean-bg"></div>
-					<div class="swimmer-girl">
-						<div class="swimmer-girl-container swimmer-inner">
-							<img class="swimmer-girl-01" src="img/showreel/02-swimmer-girl-01.png" alt="">
-						</div>
+		<div class="container-showreel-thumbnail">
+			<img class="showreel-play-btn" src="img/showreel/showreel-play-btn.png" alt="">
+			<div class="background-container">
+				<div class="boxer-man"></div>
+				<div class="ocean-bg"></div>
+				<div class="swimmer-girl">
+					<div class="swimmer-girl-container swimmer-inner">
+						<img class="swimmer-girl-01" src="img/showreel/02-swimmer-girl-01.png" alt="">
 					</div>
-					<div class="food-bg"></div>
-					<div class="fashion-bg"></div>
-					<div class="phone-dude">
-						<div class="phone-dude-container phone-inner">
-							<img class="phone-dude-01" src="img/showreel/05-phone-dude-01.png" alt="">
-						</div>
-					</div>
-					<div class="phone-bg"></div>
-					<div class="hype-shoes">
-						<div class="hype-shoes-container hype-shoes-inner">
-							<img class="hype-shoes-01" src="img/showreel/06-hype-shoes-01.png" alt="">
-						</div>
-					</div>
-					<div class="hype-shoes-bg"></div>
 				</div>
-				<img class="boxer-character" src="img/showreel/01-boxer-man.png" alt="">
-				<div class="swimmer-girl-container">
-					<img class="swimmer-girl-02" src="img/showreel/02-swimmer-girl-02.png" alt="">
-				</div>
-				<img class="food-dudes" src="img/showreel/03-food-dudes.png">
-				<img class="fashion-chick" src="img/showreel/04-fashion-chick.png">
+				<div class="food-bg"></div>
+				<div class="fashion-bg"></div>
 				<div class="phone-dude">
-					<div class="phone-dude-container">
-						<img class="phone-dude-02" src="img/showreel/05-phone-dude-02.png" alt="">
+					<div class="phone-dude-container phone-inner">
+						<img class="phone-dude-01" src="img/showreel/05-phone-dude-01.png" alt="">
 					</div>
 				</div>
+				<div class="phone-bg"></div>
 				<div class="hype-shoes">
-					<div class="hype-shoes-container">
-						<img class="hype-shoes-02" src="img/showreel/06-hype-shoes-02.png" alt="">
+					<div class="hype-shoes-container hype-shoes-inner">
+						<img class="hype-shoes-01" src="img/showreel/06-hype-shoes-01.png" alt="">
 					</div>
 				</div>
-				<div class="showreel-btn">Play showreel</div>
+				<div class="hype-shoes-bg"></div>
 			</div>
+			<img class="boxer-character" src="img/showreel/01-boxer-man.png" alt="">
+			<div class="swimmer-girl-container">
+				<img class="swimmer-girl-02" src="img/showreel/02-swimmer-girl-02.png" alt="">
+			</div>
+			<img class="food-dudes" src="img/showreel/03-food-dudes.png">
+			<img class="fashion-chick" src="img/showreel/04-fashion-chick.png">
+			<div class="phone-dude">
+				<div class="phone-dude-container">
+					<img class="phone-dude-02" src="img/showreel/05-phone-dude-02.png" alt="">
+				</div>
+			</div>
+			<div class="hype-shoes">
+				<div class="hype-shoes-container">
+					<img class="hype-shoes-02" src="img/showreel/06-hype-shoes-02.png" alt="">
+				</div>
+			</div>
+			<div class="showreel-btn">Play showreel</div>
 		</div>
+	</div>
 
-        <div id="showreel-player-video">
-			<iframe id="showreel-video" src="" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-		</div>
+    <div id="showreel-player-video">
+		<iframe id="showreel-video" src="" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	</div>
 
     <!-- Team section -->
     <div id="team-section">
