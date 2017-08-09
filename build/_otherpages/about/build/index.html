@@ -16,11 +16,11 @@
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js"></script> -->
   <link href="https://fonts.googleapis.com/css?family=Cousine|Fira+Sans:400,700" rel="stylesheet">
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js"></script> -->
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script> -->
 
   <meta property="og:title" content="Redscope - Production studio based in Sydney" />
   <meta property="og:image" content="http://redscopefilms.com/img/redscope-films.jpg" />
@@ -79,6 +79,41 @@
     </div>
     <!-- End menu section -->
 
+    <!-- Hero section -->
+    <div id="hero-section">
+		<div class="bg-image about-bg-image"></div>
+		<div class="hero-logo-container">
+			<div class="about-hero-text-mobile"><h1>We the<br>Story Tellers</h1></div>
+			<div class="about-hero-text">
+				<h1>We the&nbsp;
+    				<span id="words">
+    					<span id="word-01"></span>
+    					<span id="word-02"></span>
+    					<span id="word-03"></span>
+    					<span id="word-04"></span>
+    				</span>
+				</h1>
+			</div>
+			<div class="gradient-about"></div>
+		</div>
+	</div>
+
+    <!-- About section -->
+    <div id="about-section" class="about-top">
+        <div class="container about-container">
+            <div class="row">
+                <div class="about-copy six columns">
+                    <h1>About</h1>
+                    <p>We are a boutique creative Video/content production studio. A team of hybrid creatives, collaborators and modern storytellers that create moving and inspiring content.</p>
+                </div>
+                <div class="img-b six columns">
+                    <img class="letter-a" src="img/letters/letter-a-icon.png" alt="">
+                    <img class="letter-a-bg" src="img/letters/letter-a-bg.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Showreel section -->
     <div id="showreel-section" class="about-showreel">
 		<div class="bg-image-sections"></div>
@@ -126,6 +161,10 @@
 				</div>
 				<div class="showreel-btn">Play showreel</div>
 			</div>
+		</div>
+
+        <div id="showreel-player-video">
+			<iframe id="showreel-video" src="" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		</div>
 
     <!-- Team section -->

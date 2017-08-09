@@ -15,6 +15,8 @@ function loadAssets() {
         'img/icon/logo-facebook.svg',
         'img/icon/logo-instagram.svg',
         'img/icon/logo-vimeo.svg',
+        // Hero image
+        'img/about-hero-image.jpg'
     ]
 
     preloadimages(i).done( () => showWebsite() )
@@ -22,7 +24,58 @@ function loadAssets() {
 
 function showWebsite() {
     $('#website-section').show()
+    heroSection()
     showReel()
+}
+
+function heroSection() {
+    let bgImage02 = 'img/about-hero-image.jpg'
+    $('.bg-image.about-bg-image').css('background-image', 'url('+ bgImage02 + ')')
+
+	// About text animation
+	var aboutText = new TimelineMax({repeat:-1})
+	var words = ['Story Tellers', 'Explorers', 'Creators', 'Collaborators']
+	TweenMax.from('.about-hero-text', 1, {alpha:0, ease:Power1.easeOut}, '0')
+
+	$('#word-01').html(words[0])
+	$('#word-02').html(words[1])
+	$('#word-03').html(words[2])
+	$('#word-04').html(words[3])
+
+	var word01Width = $('#word-01').outerWidth(),
+		word02Width = $('#word-02').outerWidth(),
+		word03Width = $('#word-03').outerWidth(),
+		word04Width = $('#word-04').outerWidth();
+
+	var weThe = 170 // We The text width
+	var containerText = 560 // container Text Width
+
+	var word01Offset = (560 - (word01Width + weThe) )/2,
+		word02Offset = (560 - (word02Width + weThe) )/2,
+		word03Offset = (560 - (word03Width + weThe) )/2,
+		word04Offset = (560 - (word04Width + weThe) )/2
+
+
+	var mySplitText01 = new SplitText('#word-01', {type:"chars"}),
+		mySplitText02 = new SplitText('#word-02', {type:"chars"}),
+		mySplitText03 = new SplitText('#word-03', {type:"chars"}),
+		mySplitText04 = new SplitText('#word-04', {type:"chars"});
+
+	var firstTween = new TimelineLite()
+	firstTween.staggerFromTo('#word-01 div', .5, {alpha:0}, {alpha:1}, .1, '0')
+
+	aboutText.staggerTo('#word-01 div', .3, {alpha:0}, .1, '3.7')
+
+	aboutText.staggerFromTo('#word-02 div', .5, {alpha:0}, {alpha:1}, .1, '4')
+	aboutText.staggerTo('#word-02 div', .3, {alpha:0}, .1, '7.7')
+
+	aboutText.staggerFromTo('#word-03 div', .5, {alpha:0}, {alpha:1}, .1, '8')
+	aboutText.staggerTo('#word-03 div', .3, {alpha:0}, .1, '11.7')
+
+	aboutText.staggerFromTo('#word-04 div', .5, {alpha:0}, {alpha:1}, .1, '12')
+	aboutText.staggerTo('#word-04 div', .3, {alpha:0}, .1, '15.7')
+
+	aboutText.staggerFromTo('#word-01 div', .5, {alpha:0}, {alpha:1}, .1, '16')
 }
 
 // ==============
@@ -64,7 +117,7 @@ ig.build = function(data, args) {
 		if(videoType) {
 			videoLink = item.videos.standard_resolution.url;
 		}
-		console.log(item, i)
+		// console.log(item, i)
 		var instaLink = item.link;
 
 		var commentCount = item.comments.count;
@@ -107,12 +160,50 @@ ig.view = {
 
 ig.init();
 
+// =========
 // Listeners
+// =========
 $('.instagram').on('click', '.image', function(){
     var img = this.dataset.img;
     var url = this.dataset.url;
     window.open(url)
 });
+
+// ===========
+// Menu button
+// ===========
+$("#menu-button").click(function(){
+	$('#menu-list').fadeIn()
+	$("body").addClass("modal-open")
+	TweenMax.set('.right-menu a', {alpha:0, y:-10,})
+	var tl = new TimelineMax()
+	tl.staggerTo('.right-menu a', .6, {alpha:1, y:0, ease:Power1.eaesOut}, .2, '0')
+})
+
+$('.close-btn').click(function(){
+	$('#menu-list').fadeOut()
+	$("body").removeClass("modal-open")
+})
+
+$('#menu-list a').click(function(){
+	$('#menu-list').fadeOut()
+	$("body").removeClass("modal-open")
+})
+
+// ========
+// Showreel
+// ========
+$('.container-showreel-thumbnail').click(function(){
+    $('iframe#showreel-video').attr('src', 'https://player.vimeo.com/video/207907570')
+    $("body").addClass("modal-open")
+    $("#showreel-player-video").fadeIn()
+})
+
+$('#showreel-player-video').click(function() {
+    $('iframe#showreel-video').attr('src', '')
+    $("#showreel-player-video").fadeOut()
+    $("body").removeClass("modal-open")
+})
 
 // ============
 // Team section
