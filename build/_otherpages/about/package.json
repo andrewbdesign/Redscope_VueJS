@@ -1,0 +1,33 @@
+{
+  "name": "standard_template_generator",
+  "version": "1.0.0",
+  "description": "build standard templates with generator",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewbdesign/standard_template_generator.git"
+  },
+  "author": "andrew-bonifacio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewbdesign/standard_template_generator/issues"
+  },
+  "homepage": "https://github.com/andrewbdesign/standard_template_generator#readme",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-notify": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-webserver": "^0.9.1",
+    "yargs": "^8.0.2"
+  }
+}
