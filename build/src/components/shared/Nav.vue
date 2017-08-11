@@ -7,7 +7,7 @@
 				<div class="row">
 					<div class="six columns left-menu">
 
-						<!-- <a href="#"><img class="redscope-menu-logo" src="logo-redscope.svg"></a> -->
+						<a href="#"><img class="redscope-menu-logo" src="../../assets/img/logo-redscope.svg"></a>
 
 						<div class="left-menu-mobile">
 							<router-link to="/">Home</router-link>
@@ -57,6 +57,26 @@
                 contactNumber: 'Ph: 0406 685 233',
 
             }
+        },
+        mounted() {
+            $("#menu-button").click(function(){
+                $('#menu-list').fadeIn()
+                $("body").addClass("modal-open")
+                TweenMax.set('.right-menu a', {alpha:0, y:-10,})
+                var tl = new TimelineMax()
+                tl.staggerTo('.right-menu a', .6, {alpha:1, y:0, ease:Power1.eaesOut}, .2, '0')
+                console.log('clicked')
+            })
+
+            $('.close-btn').click(function(){
+            	$('#menu-list').fadeOut()
+            	$("body").removeClass("modal-open")
+            })
+
+            $('#menu-list a').click(function(){
+            	$('#menu-list').fadeOut()
+            	$("body").removeClass("modal-open")
+            })
         }
     }
 </script>
@@ -114,8 +134,8 @@ $desktop: 1024px;
 		}
 	}
 	.redscope-menu-logo {
-		width: 150px;
-		height: 60px;
+        width: 240px;
+        height: 72px;
 		margin-bottom: 30px;
 	}
 	p {

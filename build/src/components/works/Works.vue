@@ -113,7 +113,29 @@
 
 <script>
 export default {
+    data: function() {
+        return {
 
+        }
+    },
+    mounted: function() {
+        // Works hover
+        var md = new MobileDetect(window.navigator.userAgent);
+        if(md.phone() || md.tablet()) {
+        	$('.hover-overlay').css('opacity', 1)
+        	$('.play-icon').css('display', 'none')
+        } else {
+        	$('.video-column video').on('mouseover', function(){
+        		$(this).get(0).play()
+        		$(this).next().css('opacity', 1)
+        	}).on('mouseout', function(){
+        		$(this).get(0).currentTime = 0;
+        		$(this).get(0).pause()
+        		$(this).next().css('opacity', 0)
+        		$(this).load()
+        	})
+        }
+    }
 }
 </script>
 

@@ -93,6 +93,18 @@
 
 <script>
 export default {
+    data: function() {
+        return {
+
+        }
+    },
+    mounted() {
+        $('.bio-column video').on('mouseover', function(){
+        	$(this).get(0).play()
+        }).on('ended', function () {
+        	$(this).load()
+        })
+    }
 }
 </script>
 

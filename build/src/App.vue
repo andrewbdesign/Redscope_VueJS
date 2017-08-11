@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-nav></app-nav>
+    
     <router-view></router-view>
     <app-instagramfeed></app-instagramfeed>
     <app-footer></app-footer>
@@ -10,12 +10,15 @@
 
 <script>
 export default {
-  name: 'app',
-  data: function() {
+    name: 'app',
+    data: function() {
     return {
-      title: 'Home'
+        title: 'Home'
+        }
+    },
+    created: function() {
+
     }
-  }
 }
 </script>
 
