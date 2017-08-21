@@ -12,14 +12,17 @@ export default new Router({
     {
       path: '/',
       component: Home,
+      title: 'Redscope | Home'
     },
     {
       path: '/about',
-      component: About
+      component: About,
+      title: 'Redscope | About'
     },
     {
       path: '/contact',
-      component: Contact
+      component: Contact,
+      title: 'Redscope | Contact'
     },
     { path: '*',
       component: NotFoundComponent

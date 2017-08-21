@@ -5,7 +5,6 @@
 					<div class="works">
 						<div class="six columns video-column">
 							<div class="hover-container">
-                <!-- poster="../../assets/img/works/Sony-1.jpg" -->
 								<video id="work-01" playsinline muted loop data-video="https://www.youtube.com/embed/U3K3gFHsajs">
 									 <source src="../../assets/img/works/Sony-1.mp4" type="video/mp4">
 									 	<source src="../../assets/img/works/Sony-1.webm" type="video/webm">
@@ -20,7 +19,6 @@
 						</div>
 						<div class="six columns video-column">
 							<div class="hover-container">
-                <!-- poster="../../assets/img/works/Taku-1.jpg"  -->
 								<video id="work-02" playsinline muted loop data-video="https://www.youtube.com/embed/0nl2yp2mL94">
 										<source src="../../assets/img/works/Taku-1.mp4" type="video/mp4">
 										<source src="../../assets/img/works/Taku-1.webm" type="video/webm">
@@ -40,7 +38,6 @@
 					<div class="works">
 						<div class="six columns video-column">
 							<div class="hover-container">
-                <!-- poster="../../assets/img/works/Fitnessplanet-1.jpg" -->
 								<video id="work-03" playsinline muted loop data-video="https://www.youtube.com/embed/OhWGznK517w">
 										<source src="../../assets/img/works/Fitnessplanet-1.mp4" type="video/mp4">
 										<source src="../../assets/img/works/Fitnessplanet-1.webm" type="video/webm">
@@ -55,7 +52,6 @@
 						</div>
 						<div class="six columns video-column">
 							<div class="hover-container">
-                <!-- poster="../../assets/img/works/Hype_Girl-1.jpg"  -->
 								<video id="work-04" playsinline muted loop data-video="https://www.youtube.com/embed/gTWEgk4uGqI">
 									 <source src="../../assets/img/works/Hype_Girl-1.mp4" type="video/mp4">
 									 	<source src="../../assets/img/works/Hype_Girl-1.webm" type="video/webm">
@@ -75,7 +71,6 @@
 					<div class="works">
 						<div class="six columns video-column">
 							<div class="hover-container">
-                <!-- poster="../../assets/img/works/Adidashypeparty-1.jpg" -->
 								<video id="work-05" playsinline muted loop data-video="https://www.youtube.com/embed/-73xEK26Tes">
     									<source src="../../assets/img/works/Adidashypeparty-1.mp4" type="video/mp4">
 									 	<source src="../../assets/img/works/Adidashypeparty-1.webm" type="video/webm">
@@ -91,7 +86,6 @@
 						</div>
 						<div class="six columns video-column">
 							<div class="hover-container">
-                <!-- poster="../../assets/img/works/Piers_Nye-1.jpg" -->
 								<video id="work-06" playsinline muted loop data-video="https://www.youtube.com/embed/W4Ckgz8djoQ">
 									    <source src="../../assets/img/works/Piers_Nye-1.mp4" type="video/mp4">
 									 	<source src="../../assets/img/works/Piers_Nye-1.webm" type="video/webm">
@@ -135,6 +129,39 @@ export default {
         		$(this).load()
         	})
         }
+        // Works listener
+        // ==============
+        $('.video-column video').on('click', function(){
+    		var videoLink = $(this).attr('data-video')
+    		$('iframe#showreel-video').attr('src', videoLink)
+    		$("#showreel-player-video").fadeIn()
+            $("body").addClass("modal-open")
+    	})
+
+        // works Inline
+        // ============
+        var work01 = document.getElementById('work-01'),
+            work02 = document.getElementById('work-02'),
+            work03 = document.getElementById('work-03'),
+            work04 = document.getElementById('work-04'),
+            work05 = document.getElementById('work-05'),
+            work06 = document.getElementById('work-06');
+
+        window.makeVideoPlayableInline(work01);
+        window.makeVideoPlayableInline(work02);
+        window.makeVideoPlayableInline(work03);
+        window.makeVideoPlayableInline(work04);
+        window.makeVideoPlayableInline(work05);
+        window.makeVideoPlayableInline(work06);
+
+        // Works posters
+        // =============
+        $('#work-01').attr('poster', 'static/img/works/Sony-1.jpg')
+        $('#work-02').attr('poster', 'static/img/works/Taku-1.jpg')
+        $('#work-03').attr('poster', 'static/img/works/Fitnessplanet-1.jpg')
+        $('#work-04').attr('poster', 'static/img/works/Hype_Girl-1.jpg')
+        $('#work-05').attr('poster', 'static/img/works/Adidashypeparty-1.jpg')
+        $('#work-06').attr('poster', 'static/img/works/Piers_Nye-1.jpg')
     }
 }
 </script>

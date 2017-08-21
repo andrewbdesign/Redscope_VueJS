@@ -1,5 +1,4 @@
 <template>
-    <div>
       <div id="menu-list">
 			<img class="close-btn" src="../../assets/img/icon/icon-cross.svg" alt="">
 			<div class="menu-container">
@@ -12,11 +11,11 @@
 						<div class="left-menu-mobile">
 							<router-link to="/">Home</router-link>
 							<router-link to="/about">About</router-link>
-							<router-link to="/about">Contact</router-link>
+							<router-link to="/contact">Contact</router-link>
 						</div>
 
 						<div class="address">
-							<p> {{ address }}</p>
+							<p v-html="address"></p>
 						</div>
 
 						<a href="mailto:contact@redscopefilms.com"> {{ email }}</a>
@@ -43,9 +42,7 @@
 
 			</div>
 			</div>
-
 		</div>
-    </div>
 </template>
 
 <script>
@@ -65,7 +62,6 @@
                 TweenMax.set('.right-menu a', {alpha:0, y:-10,})
                 var tl = new TimelineMax()
                 tl.staggerTo('.right-menu a', .6, {alpha:1, y:0, ease:Power1.eaesOut}, .2, '0')
-                console.log('clicked')
             })
 
             $('.close-btn').click(function(){

@@ -1,28 +1,70 @@
 <template lang="html">
-    <div id="email-form-section">
-  			<div class="container">
-  				<div class="email-container-template">
-  					<form action="https://formspree.io/your@email.com" method="POST">
-  						Name:
-  						<input type="text" name="name">
-  						Email:
-  						<input type="email" name="email">
-  						Contact Number:
-  						<input type="text" name="contact_no">
-  						Subject:
-  						<input type="text" name="subject">
-  						Message:
-  						<textarea name="message"></textarea>
-  						<input class="submit-btn" type="submit" value="Send">
-  					</form>
-  				</div>
-  			</div>
+    <div>
+        <div id="email-form-section" v-if="!successEmail">
+            <div class="container">
+                <div class="email-container-template">
+                    <form id="gform" method="POST" action="https://script.google.com/macros/s/AKfycbwD5elmvMSDRZrRcEDPmlle-wdoYaULCxJz4fdd_Fl401GbuzE/exec">
+                        Name:
+                        <input type="text" name="name" v-model="name">
+                        <div id="email-invalid" style="display: none; color: red;">Email is invalid</div>
+                        Email:
+                        <input type="email" name="email" v-model="email">
+                        Contact Number:
+                        <input type="text" name="contact_no" v-model="contactNumber">
+                        Subject:
+                        <input type="text" name="subject" v-model="subject">
+                        Message:
+                        <textarea name="message" v-model="message"></textarea>
+                        <input class="submit-btn" type="submit" value="Send">
+                    </form>
 
-  		</div>
+
+                </div>
+            </div>
+
+        </div>
+        <div style="display:none;" id="thankyou_message" class="success-email">
+            <h1>Thank you, {{this.name}}!</h1>
+            You message has been sent and We'll get back to you shortly.
+            <router-link to="/">Click here to go home?</router-link>
+      </div>
+        <!-- <div class="success-email" v-if="successEmail">
+
+        </div> -->
+    </div>
 </template>
 
 <script>
-export default {}
+
+export default {
+    data() {
+        return {
+            name: '',
+            email: '',
+            contactNumber: '',
+            subject: '',
+            message: '',
+            successEmail: false
+        }
+    },
+    methods: {
+    },
+    mounted() {
+        document.title = 'Redscope | Contact'
+        // using SendGrid's v3 Node.js Library
+        // https://github.com/sendgrid/sendgrid-nodejs
+
+        function loaded() {
+          console.log('contact form submission handler loaded successfully');
+          // bind to the submit event of our form
+          var form = document.getElementById('gform');
+          form.addEventListener("submit", handleFormSubmit, false);
+        };
+        document.addEventListener('DOMContentLoaded', loaded, false);
+
+        loaded()
+    }
+}
 </script>
 
 <style lang="scss">
@@ -32,16 +74,16 @@ $desktop: 1024px;
 #hero-section {
     .icon-letter-container {
         position: absolute;
-
         width: 320px;
         height: 450px;
         right: 0;
         bottom: 0;
-        margin: auto;
-
-        top: -100px;
-        left: -40%;
-
+        margin: 0 auto;
+        // top: -100px;
+        // left: -40%;
+        top: 0;
+        left: 0;
+        text-align: center;
     }
     .letter-c-icon {
 
@@ -51,6 +93,10 @@ $desktop: 1024px;
         z-index: 20;
         width: 160px;
         height: 200px;
+        right: 0;
+        text-align: center;
+        position: relative;
+        margin: 0 auto;
     }
     .letter-c-bg {
         position: absolute;
@@ -213,6 +259,16 @@ $desktop: 1024px;
             color: #fff;
         }
     }
+}
 
+.success-email {
+    padding: 10em 0;
+    text-align: center;
+    background: #f5f5f5;
+    a {
+        color: #db1e26;
+        text-decoration: none;
+        display: block;
+    }
 }
 </style>

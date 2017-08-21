@@ -2,22 +2,52 @@
   <div>
     <router-link to="/contact">
       <div id="contact-section">
-				<div class="overlay-colour-cta-btn"></div>
-				<div class="container">
-					<div class="row">
-						<div class="twelve columns cta-container-hover">
-							<p>Ready to hit record?</p>
-							<h1>Tell us about your story <span id="arrow-cta-btn">&nbsp;></span></h1>
-						</div>
+			<div class="overlay-colour-cta-btn"></div>
+			<div class="container">
+				<div class="row">
+					<div class="twelve columns cta-container-hover">
+						<p>Ready to hit record?</p>
+						<h1>Tell us about your story <span id="arrow-cta-btn">&nbsp;></span></h1>
 					</div>
 				</div>
 			</div>
+		</div>
     </router-link>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+    data() {
+        return {}
+    },
+    mounted() {
+
+        var md = new MobileDetect(window.navigator.userAgent);
+		if(!md.phone() || !md.tablet()) {
+            TweenMax.set('#contact-section p', {y:22, scale:1.4})
+            TweenMax.set('#contact-section h1', {autoAlpha:0, y:-70})
+
+			$("#contact-section").hover(
+                function() { hoverOn() },
+                function() { hoverOff() }
+            )
+        }
+
+        function hoverOn() {
+            var tl = new TimelineMax()
+            tl.to('#contact-section p', .3, {autoAlpha:0, y:66}, '0')
+            tl.to('#contact-section h1', .3, {autoAlpha:1, y:-15}, '0')
+            tl.to('.overlay-colour-cta-btn', .3, {yPercent:100}, '0')
+        }
+        function hoverOff() {
+            var tl = new TimelineMax()
+            tl.to('#contact-section p', .3, {autoAlpha:1, y:22}, '0')
+            tl.to('#contact-section h1', .3, {autoAlpha:0, y:-70}, '0')
+            tl.to('.overlay-colour-cta-btn', .3, {yPercent:0}, '0')
+        }
+    }
+}
 </script>
 
 <style lang="scss" scoped>

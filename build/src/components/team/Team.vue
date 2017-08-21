@@ -5,7 +5,7 @@
   				<div class="row">
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline > <!-- poster="../../assets/bio/Adam.jpg" -->
+  								<video playsinline id="profile-01">
   										<source src="../../assets/bio/Adam.mp4" type="video/mp4">
   										<source src="../../assets/bio/Adam.webm" type="video/webm">
   								</video>
@@ -16,7 +16,7 @@
   						</div>
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline > <!-- poster="../../assets/bio/Benji.jpg" -->
+  								<video playsinline id="profile-02">
   									 <source src="../../assets/bio/Benji.mp4" type="video/mp4">
   									 	<source src="../../assets/bio/Benji.webm" type="video/webm">
   								</video>
@@ -27,7 +27,7 @@
   						</div>
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline> <!-- poster="../../assets/bio/Rolando.jpg" -->
+  								<video playsinline id="profile-03">
   									 <source src="../../assets/bio/Rolando.mp4" type="video/mp4">
   									 	<source src="../../assets/bio/Rolando.webm" type="video/webm">
   								</video>
@@ -42,7 +42,7 @@
 
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline> <!-- poster="../../assets/bio/Noel.jpg" -->
+  								<video playsinline id="profile-04">
   									 <source src="../../assets/bio/Noel.mp4" type="video/mp4">
   									 	<source src="../../assets/bio/Noel.webm" type="video/webm">
   								</video>
@@ -53,7 +53,7 @@
   						</div>
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline > <!-- poster="../../assets/bio/Vienna.jpg" -->
+  								<video playsinline id="profile-05">
   									 <source src="../../assets/bio/Vienna.mp4" type="video/mp4">
   									 	<source src="../../assets/bio/Vienna.webm" type="video/webm">
   								</video>
@@ -64,7 +64,7 @@
   						</div>
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline > <!-- poster="../../assets/bio/Em.jpg" -->
+  								<video playsinline id="profile-06">
   									 <source src="../../assets/bio/Em.mp4" type="video/mp4">
   									 	<source src="../../assets/bio/Em.webm" type="video/webm">
   								</video>
@@ -77,7 +77,7 @@
   				<div class="row">
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline > <!-- poster="../../assets/bio/Marvin.jpg" -->
+  								<video playsinline id="profile-07">
   									 <source src="../../assets/bio/Marvin.mp4" type="video/mp4">
   									 	<source src="../../assets/bio/Marvin.webm" type="video/webm">
   								</video>
@@ -99,11 +99,23 @@ export default {
         }
     },
     mounted() {
+
+
         $('.bio-column video').on('mouseover', function(){
         	$(this).get(0).play()
         }).on('ended', function () {
         	$(this).load()
         })
+
+        // Team posters
+        // =============
+        $('#profile-01').attr('poster', 'static/img/bio/Adam.jpg')
+        $('#profile-02').attr('poster', 'static/img/bio/Benji.jpg')
+        $('#profile-03').attr('poster', 'static/img/bio/Rolando.jpg')
+        $('#profile-04').attr('poster', 'static/img/bio/Noel.jpg')
+        $('#profile-05').attr('poster', 'static/img/bio/Vienna.jpg')
+        $('#profile-06').attr('poster', 'static/img/bio/Em.jpg')
+        $('#profile-07').attr('poster', 'static/img/bio/Marvin.jpg')
     }
 }
 </script>

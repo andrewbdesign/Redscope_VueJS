@@ -40,7 +40,7 @@
     <div class="container">
       <div class="row">
         <div class="eight columns">
-          <p><a href="#showreel-section">Showreel</a> <span class="divider-link">|</span> <!--<a href="works.html">Works</a> <span class="divider-link">|</span> --><router-link to="/about">About</router-link> <span class="divider-link">|</span> <router-link to="/contact">Contact</router-link></p>
+          <p><a href="#showreel-section" @click.prevent="showReel">Showreel</a> <span class="divider-link">|</span> <!--<a href="works.html">Works</a> <span class="divider-link">|</span> --><router-link to="/about">About</router-link> <span class="divider-link">|</span> <router-link to="/contact">Contact</router-link></p>
         </div>
         <div class="four columns copyright">Copyright © Redscope</div>
       </div>
@@ -48,6 +48,30 @@
   </div>
 </div>
 </template>
+
+<script type="text/javascript">
+    export default {
+        data: function() {
+            return {}
+        },
+        methods: {
+            showReel: function() {
+                $(window).scrollTop($('#showreel-section').offset().top);
+            }
+        },
+        mounted() {
+            $(".social-media-links a").hover(
+                function() {
+                    TweenMax.to($(this), .2, {y:-10, overwrite:'all', ease:Power1.easeOut}, '0')
+                },
+                function() {
+                    TweenMax.to($(this), .2, {y:0, overwrite:'all', ease:Power1.easeOut}, '0')
+
+                }
+            )
+        }
+    }
+</script>
 
 <style lang="scss">
 $mobile: 560px;
