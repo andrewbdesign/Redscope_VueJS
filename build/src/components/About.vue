@@ -57,6 +57,7 @@ import Team from './team/Team.vue';
 export default {
     data: function() {
         return {
+            homePage: false,
             title: 'About',
             description: `We are a boutique creative Video/content production studio. A team of hybrid creatives, collaborators and modern storytellers that create moving and inspiring content.`
         }

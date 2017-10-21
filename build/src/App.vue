@@ -2,6 +2,7 @@
     <div id="app">
         <div class="preloader-screen" v-if="!imagesLoaded">
             <div class="loader">
+                <div class="progress"> {{ progress }}% </div>
           		<!-- preloader screen -->
           <svg version="1.1" id="loader-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           	 width="591.495px" height="179.807px" viewBox="0 0 591.495 179.807" enable-background="new 0 0 591.495 179.807"
@@ -386,16 +387,18 @@
 </template>
 
 <script>
-
+var scope;
 export default {
     name: 'app',
     data: function() {
         return {
-            imagesLoaded: false
+            imagesLoaded: false,
+            progress: 0,
+            homePage: false
         }
     },
     mounted: function() {
-        var scope = this
+        scope = this
         var imagesFinished = false;
 
         TweenMax.set('#loader-logo', {autoAlpha:0})
@@ -418,7 +421,12 @@ export default {
         })
 
         function finishIntro() {
-            scope.imagesLoaded = true;
+            var si = setInterval(function(){
+                if(imagesFinished && scope.progress === 100) {
+                    clearInterval(si)
+                    scope.imagesLoaded = true;
+                }
+            }, 1000)
         }
 
         preloaderTimeline.fromTo('#R-redscope .rr', 2, {drawSVG:'0%'}, {drawSVG:'100%', force3D:true, ease:Power1.easeOut}, '0')
@@ -474,13 +482,36 @@ export default {
             'static/img/works/Piers_Nye-1.jpg',
             'static/img/works/Sony-1.jpg',
             'static/img/works/Taku-1.jpg',
-            'https://firebasestorage.googleapis.com/v0/b/redscope-70f17.appspot.com/o/hero-banner.mp4?alt=media&token=75c74d57-4220-4ed3-af03-d05fdd6d44cc'
+            // 'https://firebasestorage.googleapis.com/v0/b/redscope-70f17.appspot.com/o/hero-banner.mp4?alt=media&token=75c74d57-4220-4ed3-af03-d05fdd6d44cc',
+            // 'https://firebasestorage.googleapis.com/v0/b/redscope-70f17.appspot.com/o/hero-banner.webm?alt=media&token=c19b2d7c-0afe-438d-99b7-78b32d0cafd9'
 
         ]
+        var speed = 300;
+        var si = setInterval(function() {
+            scope.progress = scope.progress+1
+            if(imagesFinished) {
+                console.log('images finished loading')
+                clearTimeout(si)
+                speedup()
+            }
+
+            if(scope.progress === 99) {
+                clearTimeout(si)
+
+            }
+        }, 150)
+        function speedup() {
+            var si2 = setInterval(function() {
+                scope.progress = scope.progress+1
+                if(scope.progress === 100) {
+                    clearTimeout(si2)
+                    TweenMax.to('.progress', 1, {autoAlpha:0, ease:Power1.easeInOut})
+                }
+            }, 30)
+        }
 
         preloadimages(i).done(function () {
-            imagesFinished = true;
-            // scope.imagesLoaded = true;
+                imagesFinished = true;
         })
     },
 }
@@ -510,6 +541,7 @@ function preloadimages(arr) {
             imageloadpost()
         }
     }
+    // scope.progress = '100%'
     return { //return blank object with done() method
         done: function (f) {
             postaction = f || postaction //remember user defined callback functions to be called when images load
@@ -532,6 +564,21 @@ body.modal-open {
 
 h1, h2, p {
 	margin: 0;
+}
+
+.progress {
+    color: #fff;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    padding-top: 20%;
+    font-size: 14px;
 }
 
 h1, h2 {

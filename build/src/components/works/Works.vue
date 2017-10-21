@@ -5,13 +5,13 @@
 					<div class="works">
 						<div class="six columns video-column">
 							<div class="hover-container">
-								<video id="work-01" playsinline muted loop data-video="https://www.youtube.com/embed/U3K3gFHsajs">
-									 <source src="../../assets/img/works/Sony-1.mp4" type="video/mp4">
-									 	<source src="../../assets/img/works/Sony-1.webm" type="video/webm">
+								<video id="work-01" playsinline muted loop data-video="https://www.youtube.com/embed/tIpU5xw8yQI">
+									 <source src="../../assets/img/works/AdidasLaunch-1.mp4" type="video/mp4">
+									 	<source src="../../assets/img/works/AdidasLaunch-1.webm" type="video/webm">
 								</video>
 								<div class="hover-overlay">
 									<p>
-										<div class="title">SONY MUSEUM | Sid Tapia x SONY</div>
+										<div class="title">ADIDAS | Launch</div>
 										<img class="play-icon" src="../../assets/img/play.svg" alt="">
 									</p>
 								</div>
@@ -156,7 +156,7 @@ export default {
 
         // Works posters
         // =============
-        $('#work-01').attr('poster', 'static/img/works/Sony-1.jpg')
+        $('#work-01').attr('poster', 'static/img/works/AdidasLaunch-1.jpg').css('background', '#000')
         $('#work-02').attr('poster', 'static/img/works/Taku-1.jpg')
         $('#work-03').attr('poster', 'static/img/works/Fitnessplanet-1.jpg')
         $('#work-04').attr('poster', 'static/img/works/Hype_Girl-1.jpg')

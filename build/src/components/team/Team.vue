@@ -5,7 +5,7 @@
   				<div class="row">
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline id="profile-01">
+  								<video playsinline muted id="profile-01">
   										<source src="../../assets/bio/Adam.mp4" type="video/mp4">
   										<source src="../../assets/bio/Adam.webm" type="video/webm">
   								</video>
@@ -16,7 +16,7 @@
   						</div>
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline id="profile-02">
+  								<video playsinline muted id="profile-02">
   									 <source src="../../assets/bio/Benji.mp4" type="video/mp4">
   									 	<source src="../../assets/bio/Benji.webm" type="video/webm">
   								</video>
@@ -27,7 +27,7 @@
   						</div>
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline id="profile-03">
+  								<video playsinline muted id="profile-03">
   									 <source src="../../assets/bio/Rolando.mp4" type="video/mp4">
   									 	<source src="../../assets/bio/Rolando.webm" type="video/webm">
   								</video>
@@ -42,7 +42,7 @@
 
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline id="profile-04">
+  								<video playsinline muted id="profile-04">
   									 <source src="../../assets/bio/Noel.mp4" type="video/mp4">
   									 	<source src="../../assets/bio/Noel.webm" type="video/webm">
   								</video>
@@ -53,7 +53,7 @@
   						</div>
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline id="profile-05">
+  								<video playsinline muted id="profile-05">
   									 <source src="../../assets/bio/Vienna.mp4" type="video/mp4">
   									 	<source src="../../assets/bio/Vienna.webm" type="video/webm">
   								</video>
@@ -64,7 +64,7 @@
   						</div>
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline id="profile-06">
+  								<video playsinline muted id="profile-06">
   									 <source src="../../assets/bio/Em.mp4" type="video/mp4">
   									 	<source src="../../assets/bio/Em.webm" type="video/webm">
   								</video>
@@ -77,7 +77,7 @@
   				<div class="row">
   						<div class="four columns bio-column">
   							<div>
-  								<video playsinline id="profile-07">
+  								<video playsinline muted id="profile-07">
   									 <source src="../../assets/bio/Marvin.mp4" type="video/mp4">
   									 	<source src="../../assets/bio/Marvin.webm" type="video/webm">
   								</video>

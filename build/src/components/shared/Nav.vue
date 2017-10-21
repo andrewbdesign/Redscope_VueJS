@@ -147,6 +147,7 @@ $desktop: 1024px;
 		font-size: 40px;
 		font-family: 'Fira Sans', sans-serif;
 		font-weight: 700;
+        margin-right: 5px;
 		letter-spacing: 1px;
 	}
 	.close-btn {

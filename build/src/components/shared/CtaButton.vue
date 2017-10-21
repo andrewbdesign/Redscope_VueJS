@@ -23,12 +23,14 @@ export default {
     },
     mounted() {
 
-        var md = new MobileDetect(window.navigator.userAgent);
-		if(!md.phone() || !md.tablet()) {
+        var md2 = new MobileDetect(window.navigator.userAgent);
+		if( md2.phone() !== null || md2.tablet() !== null) {
+            // console.log('mobile or tablet')
+        } else {
             TweenMax.set('#contact-section p', {y:22, scale:1.4})
             TweenMax.set('#contact-section h1', {autoAlpha:0, y:-70})
 
-			$("#contact-section").hover(
+            $("#contact-section").hover(
                 function() { hoverOn() },
                 function() { hoverOff() }
             )

@@ -172,24 +172,38 @@ export default {
             isDesktop = true;
             if (md.phone() || md.tablet()) {
                 isDesktop = false;
-				if(iOSversion() === undefined) {
 
+                if(iOSversion()[0] > 9) {
+                    isDesktop = true;
                 } else {
-					if(iOSversion()[0] > 9) {
-		                isDesktop = true;
-		            }
-				}
+                    if(iOSversion() === undefined) {
+                        isDesktop = true;
+                    } else {
+                        isDesktop = false;
+                    }
+                }
             }
         }
-        var videoURL = 'https://firebasestorage.googleapis.com/v0/b/redscope-70f17.appspot.com/o/hero-banner.mp4?alt=media&token=75c74d57-4220-4ed3-af03-d05fdd6d44cc'
+        var videoURL = 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4'
         if(videoURL !== "" && videoURL.indexOf('https://') > -1 && isDesktop) {
             videoSetup()
+        } else {
+            var tl = new TimelineMax()
+        	tl.to('.arrow-container', 1.2, {autoAlpha:.7, ease:Power1.easeOut, onStart:function(){
+        		$('.arrow-container').show()
+        	}}, '0')
         }
+
+        var downArrow = new TimelineMax({repeat: -1})
+    	downArrow.to('.down-arrow', 1, {y:10, ease:Power1.easeOut}, '0')
+    	downArrow.to('.down-arrow', 1, {y:0, ease:Power1.easeOut}, '1')
 
         function videoSetup() {
             $('#video').show();
-            var mp4 = 'https://firebasestorage.googleapis.com/v0/b/redscope-70f17.appspot.com/o/hero-banner.mp4?alt=media&token=75c74d57-4220-4ed3-af03-d05fdd6d44cc';
-            var webm = 'https://firebasestorage.googleapis.com/v0/b/redscope-70f17.appspot.com/o/hero-banner.webm?alt=media&token=c19b2d7c-0afe-438d-99b7-78b32d0cafd9';
+            // var mp4 = 'https://firebasestorage.googleapis.com/v0/b/redscope-70f17.appspot.com/o/hero-banner.mp4?alt=media&token=75c74d57-4220-4ed3-af03-d05fdd6d44cc';
+            // var webm = 'https://firebasestorage.googleapis.com/v0/b/redscope-70f17.appspot.com/o/hero-banner.webm?alt=media&token=c19b2d7c-0afe-438d-99b7-78b32d0cafd9';
+            var mp4 = 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4';
+            var webm = 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm';
 
             var vid = document.getElementById('video-el');
             $('#video video > source:eq(0)').attr('src', mp4);
@@ -199,24 +213,30 @@ export default {
             $('#video video').bind('loadeddata', function (e) {
             if (vid.readyState == 3 || vid.readyState == 4 || vid.readyState == 2 || vid.readyState == 'complete' || vid.readyState == 'loaded') {
                 $('.bg-image').hide();
-                startAnimation();
             } });
             var bgImage01 = 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4'
             $('#video video').bind('error', function (e) {
                 $('#video').hide();
                 $('.bg-image-01').attr('src', bgImage01);
-                startAnimation();
             });
+            startAnimation();
         }
 
         function startAnimation() {
+            console.log('show video')
             var tl = new TimelineMax()
         	tl.to('#video', 2, {autoAlpha:1, ease:Power1.easeOut}, '0')
         	tl.to('.arrow-container', 1.2, {autoAlpha:.7, ease:Power1.easeOut, onStart:function(){
         		$('.arrow-container').show()
-        	}}, '1')
 
+        	}}, '0')
+            tl.add(addBgImage, '3')
 
+        }
+
+        function addBgImage() {
+            // $('#video-el').attr('poster', '/static/img/about-hero-image.jpg')
+            $('.bg-image.hero-bg-image').css('background-image', '/static/img/about-hero-image.jpg')
         }
 
         function iOSversion() {

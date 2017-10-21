@@ -88,7 +88,7 @@ $desktop: 1024px;
     .letter-c-icon {
 
         position: relative;
-        top: 0;
+        top: 9px;
         left: 0;
         z-index: 20;
         width: 160px;
@@ -100,8 +100,7 @@ $desktop: 1024px;
     }
     .letter-c-bg {
         position: absolute;
-        left: 0;
-
+        left: 91px;
         width: 154px;
         z-index: 19;
         height: 163px;
@@ -115,6 +114,7 @@ $desktop: 1024px;
                 width: 300px;
                 z-index: 19;
                 height: 298px;
+                left: 0;
             }
             .letter-c-icon {
                 width: 270px;
