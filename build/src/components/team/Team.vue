@@ -62,30 +62,6 @@
   							<p class="member-role">Shooter/Photographer</p>
   							<p class="member-description">&nbsp;</p>
   						</div>
-  						<div class="four columns bio-column">
-  							<div>
-  								<video playsinline muted id="profile-06">
-  									 <source src="../../assets/bio/Em.mp4" type="video/mp4">
-  									 	<source src="../../assets/bio/Em.webm" type="video/webm">
-  								</video>
-  							</div>
-  							<p class="member-name">Emily</p>
-  							<p class="member-role">Junior Editor/Shooter</p>
-  							<p class="member-description">&nbsp;</p>
-  						</div>
-  				</div>
-  				<div class="row">
-  						<div class="four columns bio-column">
-  							<div>
-  								<video playsinline muted id="profile-07">
-  									 <source src="../../assets/bio/Marvin.mp4" type="video/mp4">
-  									 	<source src="../../assets/bio/Marvin.webm" type="video/webm">
-  								</video>
-  							</div>
-  							<p class="member-name">Marvin</p>
-  							<p class="member-role">Drone Operator</p>
-  							<p class="member-description">&nbsp;</p>
-  						</div>
   				</div>
   			</div>
   		</div>
